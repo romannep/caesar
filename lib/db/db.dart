@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:caesar/db/structure.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
@@ -12,8 +13,9 @@ class Db {
   static late Database db;
 
   static init({
-    required appFolder,
-    required dbFilename,
+    required String appFolder,
+    required String dbFilename,
+    required List<DbTable> structure,
   }) async {
     Map<String, String> envVars = Platform.environment;
     log('User homedir: ${envVars['UserProfile']}');
@@ -32,6 +34,7 @@ class Db {
       version: 1,
     );
     log('Db open success');
+    await migrate(structure);
   }
 
   static close() async {

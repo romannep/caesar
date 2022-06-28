@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:caesar/consts.dart';
+import 'package:caesar/structure.dart';
 import 'package:flutter/material.dart';
 
 import 'db/db.dart';
@@ -30,6 +31,7 @@ class CaesarAppState extends State<CaesarApp> {
     await Db.init(
       appFolder: APP_FOLDER,
       dbFilename: DB_FILENAME,
+      structure: structure,
     );
     setState(() {
       initialized = true;
