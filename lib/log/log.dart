@@ -1,4 +1,4 @@
 
-log(String message) {
+log(dynamic message) {
   print(message);
 }
