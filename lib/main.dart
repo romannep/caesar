@@ -5,8 +5,11 @@ import 'package:caesar/structure.dart';
 import 'package:flutter/material.dart';
 
 import 'db/db.dart';
+import 'log/log.dart';
+
 
 void main() {
+  setLogFilters(LOG_FILTERS);
   runApp(const CaesarApp());
 }
 
