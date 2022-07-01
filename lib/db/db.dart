@@ -18,13 +18,13 @@ class Db {
     required List<DbTable> structure,
   }) async {
     Map<String, String> envVars = Platform.environment;
-    log('User homedir: ${envVars['UserProfile']}', 'db.debug');
+    printLog('User homedir: ${envVars['UserProfile']}', 'db.debug');
     final path= Directory('${envVars['UserProfile']}/$appFolder');
     if ((await path.exists())){
-      log('Path exist', 'db.info');
+      printLog('Path exist', 'db.info');
     }else{
       await path.create();
-      log('Path created');
+      printLog('Path created');
     }
     final dbPath = '${envVars['UserProfile']}/$appFolder/$dbFilename';
     sqfliteFfiInit();
@@ -33,7 +33,7 @@ class Db {
       dbPath,
       version: 1,
     );
-    log('Db open success', 'db.info');
+    printLog('Db open success', 'db.info');
     await migrate(structure);
   }
 

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:caesar/consts.dart';
+import 'package:caesar/screens/main.dart';
 import 'package:caesar/structure.dart';
 import 'package:flutter/material.dart';
 
@@ -71,12 +72,5 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text('Loading');
-  }
-}
-
-class MainScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Text('Main screen');
   }
 }

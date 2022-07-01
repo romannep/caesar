@@ -6,7 +6,7 @@ setLogFilters(List<String> filters) {
   _filters.addAll(filters);
 }
 
-log(dynamic message, [String section = 'debug']) {
+printLog(dynamic message, [String section = 'debug']) {
   final doPrint = _filters.every((element) => section.contains(element));
   if (doPrint) {
     print('[${section}] $message');
